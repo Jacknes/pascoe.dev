@@ -1,22 +1,17 @@
 ---
-title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+title: Hello Gatsby
+date: "2019-09-22"
+description: "Introductory blog post"
 ---
 
-This is my first post on my new fake blog! How exciting!
+Hello :)
 
-I'm sure I'll write a lot more interesting things in the future.
+My name is Jack, and I will be using this blog to continue learning more about web development and programming, along with sharing my experiences around coffee technology and life in general.
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](http://en.wikipedia.org/wiki/Salted_duck_egg).
+I think that if I don't set some obtainable goals right off the bat, this blog probably won't remain front of mind. So,
+there are a few things I want to achieve:
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
+- Write a blog post each month for the rest of the year (seems easy right? I wonder if I will actually do it.)
+- Create a custom blog post with a cool feature in React (I'm thinking a Sydney speciality coffee guide with an interactive map  🤔)
 
-![Chinese Salty Egg](./salty_egg.jpg)
+Alright that's all. If you're reading this, you are probably in the position to see if I actually reached these goals. Hope I did. If you are me and you're reading this, hope you're doing well Jack - look after your mum.
