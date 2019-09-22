@@ -1,7 +1,7 @@
 ---
 title: Hello Gatsby
 date: "2019-09-22"
-description: "Introductory blog post"
+description: "Holy heck I might have to follow through with this"
 ---
 
 Hello :)

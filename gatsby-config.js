@@ -3,12 +3,13 @@ module.exports = {
     title: `Coffee & Code`,
     author: `Jack Pascoe`,
     description: `Exploring coffee & code.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://pascoe.dev`,
     social: {
       twitter: `ijacknes`,
     },
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
