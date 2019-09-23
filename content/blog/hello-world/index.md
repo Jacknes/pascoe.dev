@@ -6,7 +6,7 @@ description: "Holy heck I might have to follow through with this"
 
 Hello :)
 
-My name is Jack, and I will be using this blog to continue learning more about web development and programming, along with sharing my experiences around coffee technology and life in general.
+My name is Jack, and I will be using this blog to continue learning more about web development and programming, along with sharing my experiences around coffee, technology and life in general.
 
 I think that if I don't set some obtainable goals right off the bat, this blog probably won't remain front of mind. So,
 there are a few things I want to achieve:
