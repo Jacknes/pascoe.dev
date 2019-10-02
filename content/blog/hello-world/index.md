@@ -1,7 +1,8 @@
 ---
 title: Hello Gatsby
 date: "2019-09-22"
-description: "Holy heck I might have to follow through with this"
+description: "Holy heck I might have to follow through with this."
+image: "https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
 ---
 
 Hello :)

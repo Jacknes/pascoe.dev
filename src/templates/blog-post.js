@@ -1,10 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
+import styled from 'styled-components';
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -18,38 +17,27 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <article>
-          <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0,
-              }}
-            >
+        <Article>
+          <Header>
+            <Headline>
               {post.frontmatter.title}
-            </h1>
+            </Headline>
             <p
               style={{
-                ...scale(-1 / 5),
                 display: `block`,
-                marginBottom: rhythm(1),
               }}
             >
               {post.frontmatter.date}
             </p>
-          </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
-          />
-          <footer>
+          </Header>
+          <Post dangerouslySetInnerHTML={{ __html: post.html }} />
+          <Footer>
+            <hr />
             <Bio />
-          </footer>
-        </article>
+          </Footer>
+        </Article>
 
-        <nav>
+        <Navigation>
           <ul
             style={{
               display: `flex`,
@@ -61,24 +49,83 @@ class BlogPostTemplate extends React.Component {
           >
             <li>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
+                <StyledLink to={previous.fields.slug} rel="prev">
                   ← {previous.frontmatter.title}
-                </Link>
+                </StyledLink>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
+                <StyledLink to={next.fields.slug} rel="next">
                   {next.frontmatter.title} →
-                </Link>
+                </StyledLink>
               )}
             </li>
           </ul>
-        </nav>
+        </Navigation>
       </Layout>
     )
   }
 }
+
+const Article = styled.article`
+  padding: 0 10%;
+`;
+
+const Navigation = styled.nav`
+  padding: 0 10%;
+  opacity: 0;
+  animation: fadein 1.5s ease-in 0.4s forwards;
+  @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+`;
+
+const Header = styled.header`
+  opacity: 0;
+  animation: fadein 1.5s ease-in forwards;
+  @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+`;
+
+const Headline = styled.h1`
+  font-size: 64px;
+  margin: 0;
+
+`
+
+const Post = styled.section`
+  line-height: 1.5;
+  opacity: 0;
+  animation: fadein 1.5s ease-in 0.4s forwards;
+  @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+`
+
+const Footer = styled.footer`
+  opacity: 0;
+  margin-top: 32px;
+  animation: fadein 1.5s ease-in 0.4s forwards;
+  @keyframes fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+`;
+
+const StyledLink = styled(Link)`
+  color: black;
+  text-decoration: none;
+`;
 
 export default BlogPostTemplate
 
@@ -98,6 +145,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        image
       }
     }
   }

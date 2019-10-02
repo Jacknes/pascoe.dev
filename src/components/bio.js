@@ -7,9 +7,8 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from 'styled-components';
 import Image from "gatsby-image"
-
-import { rhythm } from "../utils/typography"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -32,32 +31,36 @@ const Bio = () => {
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
+  const { author } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
-      <Image
+    <Root>
+      {/* <ProfileImg
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
-      <p>
+      /> */}
+      <BioText>
         Hi my name is <strong>{author}</strong>. I live and work in Sydney, Australia. I love making cool things and drinking good coffee.
-      </p>
-    </div>
+      </BioText>
+    </Root>
   )
 }
+
+const Root = styled.div`
+  display: flex;
+`;
+
+const ProfileImg = styled(Image)`
+  margin-bottom: 0;
+  min-width: 50px;
+  border-radius: 100%;
+  img {
+    border-radius: 50%;
+  }
+  margin-right: 8px;
+`;
+
+const BioText = styled.p`
+
+`;
 
 export default Bio
