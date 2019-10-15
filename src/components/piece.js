@@ -6,13 +6,17 @@ const Piece = (props) => {
     const {title, description, image, slug, index} = props;
     console.log('index', index);
     return (
-        <Root key={slug} to={slug} index={index}>
-            <Image src={image ? image : 'https://source.unsplash.com/random/300x300' }/>
-            <Details>
-                <Headline>{title}</Headline>
-                <Description>{description}</Description>
-            </Details>
-            <Cover />
+        <Root index={index}>
+            <Wrapper>
+                <Image src={image ? image : 'https://source.unsplash.com/random/300x300' }/>
+                <Link key={slug} to={slug}>
+                    <Details>
+                        <Headline>{title}</Headline>
+                        <Description>{description}</Description>
+                    </Details>
+                </Link>
+                <Cover />
+            </Wrapper>
         </Root>
     )
 }
@@ -27,6 +31,14 @@ const Cover = styled.div`
     transform: opacity;
     transition: 300ms opacity;
     background-color: #fff;
+`;
+
+const Wrapper = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 `;
 
 const Details = styled.div`
@@ -45,9 +57,10 @@ const Details = styled.div`
     padding: 16px;
     text-align: center;
     align-items: center;
+    color: black;
 `;
 
-const Root = styled(Link)`
+const Root = styled.div`
     display: flex;
     position: relative;
     flex-direction: column;
@@ -72,9 +85,16 @@ const Root = styled(Link)`
             opacity: 0.9;
         };
     }
-    height: 300px;
-    width: 300px;
-    margin: 16px;
+    /* height: 300px; */
+    width: 100%;
+    /* width: auto;
+    height: 100%;
+    padding: 8px; */
+    ::before {
+        display: block;
+        padding-top: 100%;
+        content: '';
+    }
 `;
 
 const Image = styled.img`
@@ -85,8 +105,9 @@ const Image = styled.img`
     right: 0; */
     /* border-radius: 4px; */
     object-fit: cover;
+    /* object-fit: contain; */
     height: 100%;
-    width: auto;
+    width: 100%;
 `;
 
 const Headline = styled.h2`

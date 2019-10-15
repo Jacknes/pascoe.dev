@@ -1,51 +1,35 @@
 ---
-title: "9Dashboard"
-date: "2019-09-22"
-description: "Hackathon project creating a Apple News style dashboard / reader for Nine / Fairfax content internally."
-image: "https://images.unsplash.com/photo-1553484771-047a44eee27a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+title: '9Dashboard'
+date: '2019-09-22'
+description: 'Hackathon project creating a Apple News style dashboard / reader for Nine / Fairfax content internally.'
+image: 'https://images.unsplash.com/photo-1553484771-047a44eee27a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80'
+github: 'https://github.com/Jacknes/9dashboard'
 ---
-Lorem Ipsum Dolor Sit Amet Consect
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+9Dashboard is a minimalist interface designed for use internally with Nine. Built for a Nine hackathon.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec elementum ligula eu sapien consequat eleifend.
+Future states look to include analytics, and potentially ads if expanded to an external tool.
 
-Donec nec dolor erat, condimentum sagittis sem. Praesent porttitor porttitor risus, dapibus rutrum ipsum gravida et. Integer lectus nisi, facilisis sit amet eleifend nec, pharetra ut augue. Integer quam nunc, consequat nec egestas ac, volutpat ac nisi.
+### Default View:
 
-Sed consectetur dignissim dignissim. Donec pretium est sit amet ipsum fringilla feugiat. Aliquam erat volutpat. Maecenas scelerisque, orci sit amet cursus tincidunt, libero nisl eleifend tortor, vitae cursus risus mauris vitae nisi. Cras laoreet ultrices ligula eget tempus.
+![home](https://i.imgur.com/96uPODX.png)
 
-Aenean metus purus, iaculis ut imperdiet eget, sodales et massa. Duis pellentesque nisl vel massa dapibus non lacinia velit volutpat. Maecenas accumsan interdum sodales. In hac habitasse platea dictumst. Pellentesque ornare blandit orci, eget tristique risus convallis ut. Vivamus a sapien neque.
+### Expanded Vertical View:
 
-Lorem Ipsum Dolor Sit Amet Cons
+![vertical](https://i.imgur.com/u6GdSUv.png)
 
-Nam quis sem orci. Phasellus ligula tellus, lobortis nec accumsan eget, mattis at erat.
+### Light Mode:
 
-Pellentesque at odio quam, et egestas nunc. Sed quis leo et orci consectetur porttitor nec fringilla lorem. Duis sit amet adipiscing enim.
+![light](https://i.imgur.com/XrTsZ7l.png)
 
-Suspendisse luctus justo sed risus dictum eu dignissim libero iaculis. Donec velit magna, auctor ullamcorper blandit eget, lobortis ac lectus. Praesent rhoncus eros quis lectus tempor a commodo leo aliquam. Donec convallis libero in nibh feugiat eleifend aliquet eros vehicula.
+### Dark Mode:
 
-Quisque est dui, auctor ac adipiscing at, facilisis ac magna. Mauris semper iaculis erat, sed facilisis felis ultrices eu. Phasellus ut orci non lectus ornare facilisis. Suspendisse gravida malesuada mollis. Praesent rutrum orci non nulla aliquet aliquam.
+![dark](https://i.imgur.com/zUIXdMT.png)
 
-Lorem Ipsum Dolor Sit Amet Consectetur Adipisi
+### Banana Mode (Theme of the Hack):
 
-Cras scelerisque arcu non lacus interdum congue. Suspendisse potenti. Nunc luctus ullamcorper magna in laoreet. Proin diam mauris, egestas fringilla pulvinar vitae, pulvinar sit amet neque. Aliquam sit amet risus metus. Ut urna nulla, accumsan sit amet dapibus vel, bibendum id justo. Sed nec massa leo, at pulvinar ligula.
+![banana](https://i.imgur.com/4i39PEg.png)
 
-• Lorem ipsum dolor
-• Sit amet, consectetur
-• Adipisicing elit, sed
-• Do eiusmod tempor
-• Incididunt ut labore
-• Et dolore magna
-• Aliqua. Ut enim
-• Ad minim veniam,
-• Quis nostrud exercitation
-• Ullamco laboris nisi
-Lorem Ipsum Dolor Sit Amet Consectetur
+### Focused Mode:
 
-Maecenas a enim sem. Vivamus facilisis dolor euismod turpis gravida malesuada. Nunc non sem orci. Aliquam erat volutpat.
-
-Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing E
-
-Duis sit amet velit at lectus luctus aliquet id vel elit. Pellentesque eu enim eu odio congue luctus pellentesque sit amet risus. Donec imperdiet urna non erat auctor placerat. Praesent quis blandit augue. Mauris a nisi sit amet libero suscipit bibendum. Aliquam sagittis tincidunt tincidunt.
-
-
+![home](https://i.imgur.com/xKF66az.png)

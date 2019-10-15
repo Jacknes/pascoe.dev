@@ -1,9 +1,10 @@
 ---
-title: "BeerJar"
-date: "2019-09-22"
-description: "Hackathon project for managing and simplifying our craft beer fridge."
-image: "https://instagram.fsyd4-1.fna.fbcdn.net/vp/47fa9bfa62124fb1721d3cb9acfa3087/5E2DF280/t51.2885-15/e35/p1080x1080/66794192_868705743524559_5860561402582292309_n.jpg?_nc_ht=instagram.fsyd4-1.fna.fbcdn.net&_nc_cat=103"
+title: 'BeerJar'
+date: '2019-09-22'
+description: 'Hackathon project for managing and simplifying our craft beer fridge.'
+image: 'https://instagram.fsyd4-1.fna.fbcdn.net/vp/47fa9bfa62124fb1721d3cb9acfa3087/5E2DF280/t51.2885-15/e35/p1080x1080/66794192_868705743524559_5860561402582292309_n.jpg?_nc_ht=instagram.fsyd4-1.fna.fbcdn.net&_nc_cat=103'
 # image: "https://images.unsplash.com/photo-1558642891-54be180ea339?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
+github: 'https://github.com/Jacknes/beer-jar'
 ---
 
 Lorem Ipsum Dolor Sit Amet
@@ -61,5 +62,3 @@ Lorem Ipsum Dolor Sit Amet Co
 Sed purus mi, blandit nec ultricies ac, bibendum vitae lorem. Nunc rutrum malesuada massa eu mollis. Mauris id suscipit augue. Quisque vestibulum neque sit amet arcu scelerisque sit amet dapibus est facilisis. Donec faucibus vehicula euismod.
 
 Duis hendrerit felis sed neque adipiscing feugiat. Praesent non est tellus. Sed vel nulla risus. Quisque quis erat dolor. Nunc in lectus quam.. Nunc in lectus quam..
-
-
