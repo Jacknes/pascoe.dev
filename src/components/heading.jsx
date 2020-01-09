@@ -5,11 +5,12 @@ import GlitchClip from 'react-glitch-effect/core/Clip';
 
 const Heading = ({ theme }) => {
     console.log('heading props.theme', theme);
+    const disabled = theme.key === 'light';
     return (
         <StyledLink to={`/`}>
-            <GlitchClip disabled={theme.key === 'light'} onHover>
+            <GlitchClip disabled={disabled} onHover={!disabled}>
                 <Root>Jack Pascoe</Root>
-                <Desc>Exploring Coffee & Code.</Desc>
+                <Desc>Exploring Coffee & Code</Desc>
             </GlitchClip>
         </StyledLink>
     );

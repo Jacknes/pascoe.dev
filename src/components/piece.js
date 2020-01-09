@@ -1,14 +1,49 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import { Link, graphql } from 'gatsby';
+import useThemeTransitioning from '../hooks/useThemeTransitioning';
 
 const Piece = props => {
-    const { title, description, image, slug, index, onImageLoad } = props;
+    const { title, description, image, slug, index, visible, onImageLoad } = props;
+    const [restartAnimations, setRestartAnimations] = useState(false);
+    const [initialAnimComplete, setInitialAnimComplete] = useState(false);
     const pieceRef = useRef();
+    const themeTransitioning = useThemeTransitioning();
+
+    useEffect(() => {
+        const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+        const restartAnimations = async () => {
+            await sleep(700);
+            setRestartAnimations(true);
+            await sleep(3000);
+            setRestartAnimations(false);
+        };
+        if (themeTransitioning) {
+            restartAnimations();
+        }
+    }, [themeTransitioning]);
+
+    useEffect(() => {
+        const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+        const initialLoadComplete = async () => {
+            await sleep(5000);
+            setInitialAnimComplete(true);
+        };
+        if (visible) {
+            initialLoadComplete();
+        }
+    }, [visible]);
+
     console.log('index', index);
     console.log('piece ref', pieceRef.current ? pieceRef.current : '');
     return (
-        <Root ref={pieceRef} index={index}>
+        <Root
+            ref={pieceRef}
+            index={index}
+            visible={visible}
+            restartAnimations={restartAnimations}
+            initialAnimComplete={initialAnimComplete}
+        >
             <Wrapper>
                 <Image
                     src={image ? image : 'https://source.unsplash.com/random/300x300'}
@@ -78,9 +113,25 @@ const Root = styled.div`
     color: black;
     /* animation-delay: 7s; */
     border: ${p => (p.theme.key === 'dark' ? `3px solid ${p.theme.colors.violet}` : '')};
-    opacity: 0;
-    animation: fadein 1.5s ease-in ${p => 0.8 + p.index * 0.15}s forwards;
+    opacity: ${p => (p.initialAnimComplete && !p.restartAnimations ? 1 : 0)};
+    ${p =>
+        p.visible && !p.initialAnimComplete
+            ? `animation: fadein 1.5s ease-in ${0.8 + p.index * 0.15}s forwards;`
+            : undefined};
+
+                /* animation: ${p => (p.onRoot ? 'fadein 1.5s forwards' : undefined)}; */
+    animation: ${p =>
+        p.restartAnimations ? `fadein 1.5s ease-in ${0.8 + p.index * 0.15}s forwards` : undefined};
+    /* animation: fadein 1.5s ease-in ${p => 0.8 + p.index * 0.15}s forwards; */
     @keyframes fadein {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes fadein2 {
         from {
             opacity: 0;
         }

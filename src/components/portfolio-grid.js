@@ -7,9 +7,9 @@ const Grid = props => {
     const { data, loaded, onLoad } = props;
     const [numberOfImagesLoaded, setNumberOfImagesLoaded] = useState(0);
     const posts = data.allMarkdownRemark.edges;
-
+    const publishedPosts = posts.filter(p => p.node.frontmatter.published);
     useEffect(() => {
-        const numberOfPublishedArticles = posts.filter(p => p.node.frontmatter.published).length;
+        const numberOfPublishedArticles = publishedPosts.length;
         console.log('numberOfPublishedArticles', numberOfPublishedArticles);
         if (numberOfImagesLoaded === numberOfPublishedArticles) {
             onLoad();
@@ -24,15 +24,11 @@ const Grid = props => {
 
     return (
         <Root loaded={loaded}>
-            {posts.map(({ node }, index) => {
+            {publishedPosts.map(({ node }, index) => {
                 console.log('node', node);
                 console.log('numberOfImagesLoaded', numberOfImagesLoaded);
                 const title = node.frontmatter.title || node.fields.slug;
                 const image = node.frontmatter.image;
-                const published = node.frontmatter.published;
-                if (!published) {
-                    return;
-                }
                 const description = node.frontmatter.description;
 
                 return (
@@ -42,6 +38,7 @@ const Grid = props => {
                         image={image}
                         slug={node.fields.slug}
                         index={index}
+                        visible={loaded}
                         onImageLoad={handleOnImageLoad}
                     >
                         <header>

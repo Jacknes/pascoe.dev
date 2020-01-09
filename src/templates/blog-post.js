@@ -6,30 +6,30 @@ import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Icon from '../components/icons/Icon';
+import useTheme from '../hooks/useTheme';
 
-class BlogPostTemplate extends React.Component {
-    render() {
-        const post = this.props.data.markdownRemark;
-        const siteTitle = this.props.data.site.siteMetadata.title;
-        const { previous, next } = this.props.pageContext;
-        console.log('blog props', this.props);
-        return (
-            <Layout location={this.props.location} title={siteTitle}>
-                <SEO
-                    title={post.frontmatter.title}
-                    description={post.frontmatter.description || post.excerpt}
-                />
-                <Article>
-                    <Header>
-                        <GlitchClip>
-                            <Headline value={post.frontmatter.title}>
-                                {post.frontmatter.title}
-                            </Headline>
-                        </GlitchClip>
-                        <Details>
-                            <PostDate>{post.frontmatter.date}</PostDate>
-                            <Icons>
-                                {/* {post.frontmatter.github && (
+const BlogPostTemplate = props => {
+    const post = props.data.markdownRemark;
+    const siteTitle = props.data.site.siteMetadata.title;
+    const { previous, next } = props.pageContext;
+    const theme = useTheme();
+    console.log('theme', theme);
+
+    return (
+        <Layout location={props.location} title={siteTitle}>
+            <SEO
+                title={post.frontmatter.title}
+                description={post.frontmatter.description || post.excerpt}
+            />
+            <Article>
+                <Header>
+                    <GlitchClip>
+                        <Headline value={post.frontmatter.title}>{post.frontmatter.title}</Headline>
+                    </GlitchClip>
+                    <Details>
+                        <PostDate>{post.frontmatter.date}</PostDate>
+                        <Icons>
+                            {/* {post.frontmatter.github && (
                                     <Icon
                                         size={18}
                                         type={'github'}
@@ -38,64 +38,63 @@ class BlogPostTemplate extends React.Component {
                                         }}
                                     />
                                 )} */}
-                                {post.frontmatter.github && (
-                                    <IconLink
-                                        onClick={() => {
-                                            window.open(post.frontmatter.github, '_blank');
-                                        }}
-                                    >
-                                        <Icon size={18} type={'github'} />
-                                    </IconLink>
-                                )}
-                                {post.frontmatter.live && (
-                                    <IconLink
-                                        onClick={() => {
-                                            window.open(post.frontmatter.live, '_blank');
-                                        }}
-                                    >
-                                        <Icon size={18} type={'openNew'} />
-                                    </IconLink>
-                                )}
-                            </Icons>
-                        </Details>
-                    </Header>
-                    <Post dangerouslySetInnerHTML={{ __html: post.html }} />
-                    <Footer>
-                        <hr />
-                        <Bio />
-                    </Footer>
-                </Article>
+                            {post.frontmatter.github && (
+                                <IconLink
+                                    onClick={() => {
+                                        window.open(post.frontmatter.github, '_blank');
+                                    }}
+                                >
+                                    <Icon size={18} type={'github'} />
+                                </IconLink>
+                            )}
+                            {post.frontmatter.live && (
+                                <IconLink
+                                    onClick={() => {
+                                        window.open(post.frontmatter.live, '_blank');
+                                    }}
+                                >
+                                    <Icon size={18} type={'openNew'} />
+                                </IconLink>
+                            )}
+                        </Icons>
+                    </Details>
+                </Header>
+                <Post dangerouslySetInnerHTML={{ __html: post.html }} />
+                <Footer>
+                    <hr />
+                    <Bio />
+                </Footer>
+            </Article>
 
-                <Navigation>
-                    <ul
-                        style={{
-                            display: `flex`,
-                            flexWrap: `wrap`,
-                            justifyContent: `space-between`,
-                            listStyle: `none`,
-                            padding: 0,
-                        }}
-                    >
-                        <li>
-                            {previous && (
-                                <StyledLink to={previous.fields.slug} rel="prev">
-                                    ← {previous.frontmatter.title}
-                                </StyledLink>
-                            )}
-                        </li>
-                        <li>
-                            {next && (
-                                <StyledLink to={next.fields.slug} rel="next">
-                                    {next.frontmatter.title} →
-                                </StyledLink>
-                            )}
-                        </li>
-                    </ul>
-                </Navigation>
-            </Layout>
-        );
-    }
-}
+            <Navigation>
+                <ul
+                    style={{
+                        display: `flex`,
+                        flexWrap: `wrap`,
+                        justifyContent: `space-between`,
+                        listStyle: `none`,
+                        padding: 0,
+                    }}
+                >
+                    <li>
+                        {previous && (
+                            <StyledLink to={previous.fields.slug} rel="prev">
+                                ← {previous.frontmatter.title}
+                            </StyledLink>
+                        )}
+                    </li>
+                    <li>
+                        {next && (
+                            <StyledLink to={next.fields.slug} rel="next">
+                                {next.frontmatter.title} →
+                            </StyledLink>
+                        )}
+                    </li>
+                </ul>
+            </Navigation>
+        </Layout>
+    );
+};
 
 const Article = styled.article`
     padding: 0 10%;
