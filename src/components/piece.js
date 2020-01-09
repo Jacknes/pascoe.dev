@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { Link, graphql } from "gatsby";
+import { Link, graphql } from 'gatsby';
 
-const Piece = (props) => {
-    const {title, description, image, slug, index} = props;
+const Piece = props => {
+    const { title, description, image, slug, index, onImageLoad } = props;
+    const pieceRef = useRef();
     console.log('index', index);
+    console.log('piece ref', pieceRef.current ? pieceRef.current : '');
     return (
-        <Root index={index}>
+        <Root ref={pieceRef} index={index}>
             <Wrapper>
-                <Image src={image ? image : 'https://source.unsplash.com/random/300x300' }/>
+                <Image
+                    src={image ? image : 'https://source.unsplash.com/random/300x300'}
+                    onLoad={onImageLoad}
+                />
                 <Link key={slug} to={slug}>
                     <Details>
                         <Headline>{title}</Headline>
@@ -18,8 +23,8 @@ const Piece = (props) => {
                 <Cover />
             </Wrapper>
         </Root>
-    )
-}
+    );
+};
 
 const Cover = styled.div`
     opacity: 0;
@@ -30,7 +35,7 @@ const Cover = styled.div`
     right: 0;
     transform: opacity;
     transition: 300ms opacity;
-    background-color: #fff;
+    background-color: ${p => p.theme.colors.background};
 `;
 
 const Wrapper = styled.div`
@@ -57,7 +62,13 @@ const Details = styled.div`
     padding: 16px;
     text-align: center;
     align-items: center;
-    color: black;
+    color: ${p => p.theme.colors.textSecondary};
+    @media (max-width: 450px) {
+        /* opacity: 1; */
+        /* top: unset; */
+        /* background: rgb(255, 255, 255);
+        background: linear-gradient(0deg, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%); */
+    }
 `;
 
 const Root = styled.div`
@@ -66,11 +77,16 @@ const Root = styled.div`
     flex-direction: column;
     color: black;
     /* animation-delay: 7s; */
+    border: ${p => (p.theme.key === 'dark' ? `3px solid ${p.theme.colors.violet}` : '')};
     opacity: 0;
-    animation: fadein 1.5s ease-in ${p => 0.8 + (p.index * 0.15)}s forwards;
+    animation: fadein 1.5s ease-in ${p => 0.8 + p.index * 0.15}s forwards;
     @keyframes fadein {
-        from { opacity: 0; }
-        to   { opacity: 1; }
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
     /* border: 1px solid #e5e5e5; */
     /* padding: 16px; */
@@ -83,7 +99,7 @@ const Root = styled.div`
         }
         ${Cover} {
             opacity: 0.9;
-        };
+        }
     }
     /* height: 300px; */
     width: 100%;

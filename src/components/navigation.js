@@ -36,12 +36,16 @@ const Root = styled.div`
             opacity: 1;
         }
     }
+    @media (max-width: 450px) {
+        display: none;
+        margin-left: auto;
+    }
 `;
 
 const StyledLink = styled(Link)`
     display: block;
     text-decoration: none;
-    color: black;
+    color: ${p => p.theme.colors.textTertiary};
     margin-top: 8px;
 `;
 

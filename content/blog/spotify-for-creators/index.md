@@ -1,8 +1,9 @@
 ---
 title: Spotify for Creators
-date: "2019-10-02"
-description: "3 hour Hackathon project at Spotify."
-image: "https://i.imgur.com/r32Srvh.jpg"
+date: '2019-10-02'
+description: '3 hour Hackathon project at Spotify.'
+image: 'https://i.imgur.com/r32Srvh.jpg'
+published: true
 ---
 
 Spotify for Creators was an idea for a Spotify x NLG Hackathon / ideation session that only lasted 3 hours. The task was to propose an extension or additional feature for Spotify that would improve the lives of students on campus at KTH, Stockholm.
@@ -14,25 +15,28 @@ Our focus area was derived from several group members experience with trying to 
 Our team were all international students, and as such we had all recently attended a welcome ceremony in which the University’s orchestra had played. We realised that the University itself must be producing plenty of high quality music across genres that students would be happy to allow other students to use in projects.
 
 ## Prototyping
+
 Due to the time constraint, we chose to create a simple prototype that could convey the merit of the idea. We decided to use FramerX as it had recently been released and we wanted to gain some more experience with it.
 
 ### Homepage
+
 ![homepage](https://i.imgur.com/WMnzZiv.png)
 
-
 ### Categories
+
 ![categories](https://i.imgur.com/o3GfpiF.png)
 
 ### University / Institution
+
 ![university](https://i.imgur.com/9CHVbpC.png)
 
 ## Key Features
 
-- Ability Upload, browse and download royalty free music.
-- Easy to use search functionality.
-- Search by category or institution.
-- Create “projects”, easily sorting and storing music for a specific project or piece of work.
-- Subscribe to institutions or projects, allowing you to keep up to date with your University or other institution.
+-   Ability Upload, browse and download royalty free music.
+-   Easy to use search functionality.
+-   Search by category or institution.
+-   Create “projects”, easily sorting and storing music for a specific project or piece of work.
+-   Subscribe to institutions or projects, allowing you to keep up to date with your University or other institution.
 
 ## Final thoughts
 

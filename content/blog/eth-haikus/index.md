@@ -6,6 +6,7 @@ description: 'Website for viewing daily haikus from a creative Redditor'
 image: 'https://images.unsplash.com/photo-1547331994-d26cb135af48?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'
 # image: 'https://images.unsplash.com/photo-1513702792940-2e1d290741cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'
 github: 'https://github.com/Jacknes/EthPoems'
+published: true
 ---
 
 ### Home View:

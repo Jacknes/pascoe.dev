@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
+import GlitchClip from 'react-glitch-effect/core/Clip';
 import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -11,7 +12,7 @@ class BlogPostTemplate extends React.Component {
         const post = this.props.data.markdownRemark;
         const siteTitle = this.props.data.site.siteMetadata.title;
         const { previous, next } = this.props.pageContext;
-
+        console.log('blog props', this.props);
         return (
             <Layout location={this.props.location} title={siteTitle}>
                 <SEO
@@ -20,7 +21,11 @@ class BlogPostTemplate extends React.Component {
                 />
                 <Article>
                     <Header>
-                        <Headline>{post.frontmatter.title}</Headline>
+                        <GlitchClip>
+                            <Headline value={post.frontmatter.title}>
+                                {post.frontmatter.title}
+                            </Headline>
+                        </GlitchClip>
                         <Details>
                             <PostDate>{post.frontmatter.date}</PostDate>
                             <Icons>
@@ -40,6 +45,15 @@ class BlogPostTemplate extends React.Component {
                                         }}
                                     >
                                         <Icon size={18} type={'github'} />
+                                    </IconLink>
+                                )}
+                                {post.frontmatter.live && (
+                                    <IconLink
+                                        onClick={() => {
+                                            window.open(post.frontmatter.live, '_blank');
+                                        }}
+                                    >
+                                        <Icon size={18} type={'openNew'} />
                                     </IconLink>
                                 )}
                             </Icons>
@@ -85,6 +99,9 @@ class BlogPostTemplate extends React.Component {
 
 const Article = styled.article`
     padding: 0 10%;
+    @media (max-width: 450px) {
+        padding: 0;
+    }
 `;
 
 const Navigation = styled.nav`
@@ -124,7 +141,6 @@ const Header = styled.header`
 const Icons = styled.div`
     display: inline-flex;
     flex-direction: row;
-    margin-left: 8px;
     /* margin-top: 24px; */
     /* position: absolute;
     top: 50%;
@@ -133,18 +149,75 @@ const Icons = styled.div`
     /* bottom: 0; */
 `;
 
-const IconLink = styled.span`
-    cursor: pointer;
-    height: 18px;
-`;
-
 const Headline = styled.h1`
+    color: ${p => p.theme.colors.title};
     font-size: 64px;
     margin: 0;
     margin-top: 8px;
+
+    ${p =>
+        p.theme.key === 'dark'
+            ? `
+                position: relative;
+                letter-spacing: -2px;
+                // font-family: 'Nunito Sans', sans-serif;
+                font-weight: 800;
+                font-size: 64px;
+                color: #ec00ff;
+                font-style: italic;
+                &:hover {
+                    &:before {
+                        content: '${p.value}';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        animation: glitch 0.4s infinite alternate;
+                    }
+                }
+                &:after {
+                    content: '${p.value}';
+                    position: absolute;
+                    left: 3px;
+                    top: 3px;
+                    color: #0bcbff;
+
+                }
+    `
+            : ''};
+
+    @keyframes glitch {
+        0% {
+            transform: translate(0);
+        }
+        20% {
+            transform: translate(-5px, 5px);
+        }
+        40% {
+            transform: translate(-5px, -5px);
+        }
+        60% {
+            transform: translate(5px, 5px);
+        }
+        80% {
+            transform: translate(5px, -5px);
+        }
+        to {
+            transform: translate(0);
+        }
+    }
+`;
+
+const IconLink = styled.span`
+    color: ${p => p.theme.colors.textSecondary};
+    cursor: pointer;
+    height: 18px;
+    margin-left: 8px;
 `;
 
 const PostDate = styled.span`
+    color: ${p => p.theme.colors.textSecondary};
     display: inline-block;
     /* margin-top: 24px; */
     margin: 0;
@@ -152,6 +225,7 @@ const PostDate = styled.span`
 
 const Post = styled.section`
     /* line-height: 1.5; */
+    color: ${p => p.theme.colors.articleText};
     font-size: 20px;
     letter-spacing: -0.017em;
     line-height: 1.5;
@@ -170,6 +244,9 @@ const Post = styled.section`
     img {
         width: 100%;
         height: auto;
+    }
+    @media (max-width: 450px) {
+        font-size: 18px;
     }
 `;
 
@@ -192,7 +269,7 @@ const StyledLink = styled(Link)`
     text-decoration: none;
 `;
 
-export default BlogPostTemplate;
+export default withTheme(BlogPostTemplate);
 
 export const pageQuery = graphql`
     query BlogPostBySlug($slug: String!) {
