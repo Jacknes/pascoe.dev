@@ -22,9 +22,10 @@ const ThemeSwitcher = props => {
 
 const Switcher = styled.div`
     position: ${p => (p.grow ? 'fixed' : 'relative')};
-    bottom: ${p => (p.grow ? '24px' : undefined)};
-    left: ${p => (p.grow ? '24px' : undefined)};
-    color:  ${p => (p.theme.key === 'light' ? p.theme.colors.violet : p.theme.colors.black)};
+    bottom:24px;
+    /* bottom: ${p => (p.grow ? '24px' : undefined)}; */
+    left: 24px;
+    color:  ${p => (p.theme.key === 'light' ? p.theme.colors.babyBlue : p.theme.colors.black)};
     z-index: 999;
     display: flex;
     justify-content: center;

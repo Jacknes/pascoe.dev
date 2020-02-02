@@ -52,9 +52,12 @@ const Layout = props => {
                     <GlobalStyles />
                     <Sidebar onRoot={false} fadeIn={restartFadeAnimations} key="1">
                         <Heading />
-                        <Navigation onRoot={false} />
+                        <Navigation
+                            onRoot={false}
+                            themeKey={themeKey}
+                            onThemeClick={handleThemeSwitchOnClick}
+                        />
                         {/* <Bio /> */}
-                        <ThemeSwitcher themeKey={themeKey} onClick={handleThemeSwitchOnClick} />
                     </Sidebar>
                     <Main>{children}</Main>
                 </Root>
