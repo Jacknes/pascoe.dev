@@ -151,6 +151,9 @@ const Icons = styled.div`
 const Headline = styled.h1`
     color: ${p => p.theme.colors.title};
     font-size: 64px;
+    @media (max-width: 450px) {
+        font-size: 48px;
+    }
     margin: 0;
     margin-top: 8px;
 
